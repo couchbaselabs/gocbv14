@@ -48,7 +48,7 @@ func Connect(connSpecStr string) (*Cluster, error) {
 		return optValue[len(optValue)-1], true
 	}
 
-	initialTracer := &opentracing.NoopTracer{}
+	initialTracer := &ThresholdLoggingTracer{}
 	tracerAddRef(initialTracer)
 
 	config := gocbcore.AgentConfig{
